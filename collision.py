@@ -7,10 +7,9 @@ class CollisionManager:
         self.paddles = paddles
 
     def check_paddle_collision(self):
-        """Verifica la colisión de la bola con alguna de las palas."""
         for paddle in self.paddles:
             if self.ball.distance(paddle) < 50 and abs(self.ball.xcor() - paddle.xcor()) < 10:
-                self.ball.bounce_x()
+                self.ball.bounce_x(paddle)  # Pasamos el objeto paddle como argumento
 
     def check_wall_collision(self):
         """Verifica la colisión de la bola con las paredes superior e inferior."""
