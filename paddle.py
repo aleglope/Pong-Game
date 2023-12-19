@@ -30,3 +30,6 @@ class Paddle(turtle.Turtle):
         self.moving_up = False
         self.moving_down = True
         self.moving = 'down'
+    def reset_movement(self):
+        """Resetea el estado del movimiento de la pala."""
+        self.moving = None

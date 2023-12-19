@@ -16,8 +16,8 @@ class GameController:
         self.paddle_b = Paddle((350, 0))
         self.ball = Ball()
         self.scoreboard = ScoreBoard()
+        self.ai_controller = AIController(self.paddle_b, self.ball, self.scoreboard)
         self.collision_manager = CollisionManager(self.ball, [self.paddle_a, self.paddle_b])
-        self.ai_controller = AIController(self.paddle_b, self.ball, 'Easy')
 
         # Configurar escucha de eventos del teclado
         self.game_screen.screen.listen()

@@ -21,8 +21,9 @@ class GameController:
         self.screen.screen.onkeypress(self.paddle_b.move_up, "Up")
         self.screen.screen.onkeypress(self.paddle_b.move_down, "Down")
         self.scoreboard = ScoreBoard()
+        self.ai_controller = AIController(self.paddle_b, self.ball, self.scoreboard)
         self.collision_manager = CollisionManager(self.ball, [self.paddle_a, self.paddle_b])
-        self.ai_controller = AIController(self.paddle_b, self.ball, 'Easy')
+
 
     def run(self):
         """Ejecuta el bucle principal del juego."""

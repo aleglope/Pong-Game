@@ -10,13 +10,13 @@ class Ball(turtle.Turtle):
         self.color("white")
         self.penup()
         self.goto(0, 0)
-        self.dx = 0.2  # Velocidad inicial de la bola en el eje X
-        self.dy = 0.2  # Velocidad inicial de la bola en el eje Y
-        self.default_dx = 0.2  # Velocidad horizontal predeterminada
-        self.default_dy = 0.2  # Velocidad vertical predeterminada
+        self.dx = 0.5  # Velocidad inicial de la bola en el eje X
+        self.dy = 0.5  # Velocidad inicial de la bola en el eje Y
+        self.default_dx = 0.5  # Velocidad horizontal predeterminada
+        self.default_dy = 0.5  # Velocidad vertical predeterminada
         self.last_collision_time = time.time()
-        self.time_to_start_slowing = 1.0  # Tiempo en segundos para comenzar a disminuir la velocidad
-        self.slowing_factor = 0.5 # Factor de reducción de la velocidad para el enfriamiento
+        self.time_to_start_slowing = 1  # Tiempo en segundos para comenzar a disminuir la velocidad
+        self.slowing_factor = 0.4  # Factor de reducción de la velocidad para el enfriamiento
         self.time_of_last_adjustment = time.time()  # Nuevo: Guarda la última vez que se ajustó la velocidad
 
     def move(self):
@@ -43,7 +43,7 @@ class Ball(turtle.Turtle):
             self.dy -= 0.5  # Disminuye la velocidad un 10%
 
         # Limita la velocidad máxima para evitar que se acelere demasiado
-        max_speed = 3.0
+        max_speed = 5.0
         self.dy = max(min(self.dy, max_speed), -max_speed)
 
     def adjust_speed(self):
