@@ -15,7 +15,7 @@ class Paddle(turtle.Turtle):
         self.moving_down = False  # State to track if the paddle is moving down
         self.upper_bound = 250  # The upper boundary for the paddle's movement
         self.lower_bound = -250  # The lower boundary for the paddle's movement
-        self.speed = 20  # The speed at which the paddle moves
+        self.speed = 1  # The speed at which the paddle moves
 
     def start_moving_up(self):
         """Signals the paddle to start moving up."""

@@ -48,7 +48,6 @@ class Ball(turtle.Turtle):
         """Gradually reduce the ball's speed if there hasn't been a collision for a set period."""
         current_time = time.time()
         if current_time - self.last_collision_time > 3:  # Adjust speed after 3 seconds without collision
-            # Ensure that the speed is only reduced if it is greater than the default speed
             if abs(self.dx) > self.DEFAULT_SPEED:
                 # Apply a proportional reduction to avoid stopping the ball abruptly
                 self.dx -= self.dx * (self.SPEED_REDUCTION_FACTOR / self.MAX_SPEED)

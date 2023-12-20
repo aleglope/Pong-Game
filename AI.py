@@ -23,8 +23,8 @@ class AIController:
         """
         # Adjust the speed and anticipation factor based on the current score
         if self.scoreboard.score_a - self.scoreboard.score_b >= 2:
-            speed = self.base_speed * 1.5  # Increase speed by 50%
-            anticipation_factor = self.base_anticipation * 1.5  # Increase anticipation by 50%
+            speed = self.base_speed * 1.0  # Increase speed by 50%
+            anticipation_factor = self.base_anticipation * 4.0  # Increase anticipation by 50%
         else:
             speed = self.base_speed
             anticipation_factor = self.base_anticipation
