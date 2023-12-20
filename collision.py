@@ -1,4 +1,4 @@
-# Este módulo manejará la detección de colisiones de la bola con las palas y las paredes.
+
 
 class CollisionManager:
     def __init__(self, ball, paddles):

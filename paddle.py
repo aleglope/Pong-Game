@@ -1,10 +1,10 @@
 import turtle
 
+
 # Clase base para las palas
 class Paddle(turtle.Turtle):
     def __init__(self, position):
         super().__init__()
-        self.moving = None
         self.shape("square")
         self.color("white")
         self.shapesize(stretch_wid=5, stretch_len=1)
@@ -14,22 +14,22 @@ class Paddle(turtle.Turtle):
         self.moving_down = False
         self.upper_bound = 250  # Límite superior
         self.lower_bound = -250  # Límite inferior
+        self.speed = 1  # Velocidad de movimiento de la pala
 
-    def move_up(self):
-        if self.ycor() < self.upper_bound:  # Verifica si la pala está por debajo del límite superior
-            y = self.ycor() + 20
-            self.sety(y)
+    def start_moving_up(self):
         self.moving_up = True
         self.moving_down = False
-        self.moving = 'up'
 
-    def move_down(self):
-        if self.ycor() > self.lower_bound:  # Verifica si la pala está por encima del límite inferior
-            y = self.ycor() - 20
-            self.sety(y)
+    def start_moving_down(self):
         self.moving_up = False
         self.moving_down = True
-        self.moving = 'down'
-    def reset_movement(self):
-        """Resetea el estado del movimiento de la pala."""
-        self.moving = None
+
+    def stop_moving(self):
+        self.moving_up = False
+        self.moving_down = False
+
+    def move(self):
+        if self.moving_up and self.ycor() < self.upper_bound:
+            self.sety(self.ycor() + self.speed)
+        elif self.moving_down and self.ycor() > self.lower_bound:
+            self.sety(self.ycor() - self.speed)

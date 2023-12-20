@@ -10,7 +10,7 @@ import turtle
 # Controlador principal del juegosssss
 class GameController:
     def __init__(self):
-        # Configuración inicial
+        # Configuración inicialwwww
         self.game_screen = GameScreen()
         self.paddle_a = Paddle((-350, 0))
         self.paddle_b = Paddle((350, 0))
@@ -18,11 +18,11 @@ class GameController:
         self.scoreboard = ScoreBoard()
         self.ai_controller = AIController(self.paddle_b, self.ball, self.scoreboard)
         self.collision_manager = CollisionManager(self.ball, [self.paddle_a, self.paddle_b])
-
-        # Configurar escucha de eventos del teclado
         self.game_screen.screen.listen()
-        self.game_screen.screen.onkeypress(self.paddle_a.move_up, "w")
-        self.game_screen.screen.onkeypress(self.paddle_a.move_down, "s")
+        self.game_screen.screen.onkeypress(self.paddle_a.start_moving_up, "w")
+        self.game_screen.screen.onkeypress(self.paddle_a.start_moving_down, "s")
+        self.game_screen.screen.onkeyrelease(self.paddle_a.stop_moving, "w")
+        self.game_screen.screen.onkeyrelease(self.paddle_a.stop_moving, "s")
 
     def run(self):
         """Ejecuta el bucle principal del juego."""
@@ -30,6 +30,7 @@ class GameController:
             self.game_screen.update()
             self.ball.move()
             self.ai_controller.move_paddle()
+            self.paddle_a.move()
 
             # Verifica las colisiones y actualiza el marcador
             goal = self.collision_manager.update()
@@ -44,7 +45,7 @@ class GameController:
                 break
 
     def stop(self):
-        """Detiene el juego y cierra la ventana."""
+        """Detiene el juego y cierra la vewntana."""
         self.game_screen.close()
 
 
